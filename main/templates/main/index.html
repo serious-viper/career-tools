@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="list-group">
+                <a href="{% url 'main:cutoff' %}" class="list-group-item list-group-item-action">KCET Cutoff Rank Analyser</a>
+                <a href="{% url 'seat_finder:index' %}" class="list-group-item list-group-item-action">College Seat Analyser</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Disabled item</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

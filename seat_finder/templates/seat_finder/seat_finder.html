@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2>Find out seat availability based on your Reservation Category</h2>
+    <div class="row">
+
+        <div class="col-md-6">
+            <form>
+                <div class="mb-3">
+                    <label for="id_category" class="form-label">Select a Course Category:</label>
+                    <select class="form-control" id="id_category">
+                        <option>--select--</option>
+                        {% for cat in category %}
+                        <option value="{{cat.course_type}}">{{cat.course_type}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="id_course" class="form-label">Select a Course:</label>
+                    <select class="form-control" id="id_course">
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="id_district" class="form-label">Select a Region / City / District:</label>
+                    <select class="form-control" id="id_district">
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="id_college" class="form-label">Select a College:</label>
+                    <select class="form-control" id="id_college">
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="id_reservation" class="form-label">Select Reservation Category:</label>
+                    <select class="form-control" id="id_reservation">
+                        <option>-- select --</option>
+                        <option value='_1g'>1G</option>
+                        <option value='_1k'>1K</option>
+                        <option value='_1r'>1R</option>
+                        <option value='_2ag'>2AG</option>
+                        <option value='_2ak'>2AK</option>
+                        <option value='_2ar'>2AR</option>
+                        <option value='_2bg'>2BG</option>
+                        <option value='_2bk'>2BK</option>
+                        <option value='_2br'>2BR</option>
+                        <option value='_3ag'>3AG</option>
+                        <option value='_3ak'>3AK</option>
+                        <option value='_3ar'>3AR</option>
+                        <option value='_3bg'>3BG</option>
+                        <option value='_3bk'>3BK</option>
+                        <option value='_3br'>3BR</option>
+                        <option value='gm'>GM</option>
+                        <option value='gmk'>GMK</option>
+                        <option value='gmp'>GMP</option>
+                        <option value='gmr'>GMR</option>
+                        <option value='scg'>SCG</option>
+                        <option value='sck'>SCK</option>
+                        <option value='scr'>SCR</option>
+                        <option value='stg'>STG</option>
+                        <option value='stk'>STK</option>
+                        <option value='str'>STR</option>
+                        <option value='snq'>SNQ</option>
+                        <option value='_1h'>1H</option>
+                        <option value='_1kh'>1KH</option>
+                        <option value='_1rh'>1RH</option>
+                        <option value='_2ah'>2AH</option>
+                        <option value='_2akh'>2AKH</option>
+                        <option value='_2arh'>2ARH</option>
+                        <option value='_2bh'>2BH</option>
+                        <option value='_2bkh'>2BKH</option>
+                        <option value='_2brh'>2BRH</option>
+                        <option value='_3ah'>3AH</option>
+                        <option value='_3akh'>3AKH</option>
+                        <option value='_3arh'>3ARH</option>
+                        <option value='_3bh'>3BH</option>
+                        <option value='_3bkh'>3BKH</option>
+                        <option value='_3brh'>3BRH</option>
+                        <option value='gmh'>GMH</option>
+                        <option value='gmkh'>GMKH</option>
+                        <option value='gmrh'>GMRH</option>
+                        <option value='sch'>SCH</option>
+                        <option value='sckh'>SCKH</option>
+                        <option value='scrh'>SCRH</option>
+                        <option value='sth'>STH</option>
+                        <option value='stkh'>STKH</option>
+                        <option value='strh'>STRH</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div id="id_seat_matrix_table"></div>
+
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'seatfinder.js' %}"></script>
+
+{% endblock content %}

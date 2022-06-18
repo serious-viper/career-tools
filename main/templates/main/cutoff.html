@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>KCET Cutoff Rank Analyser</h1>
+    <div class="row my-3">
+        <div class="col-md-6">
+            <form action="">
+                <div class="mb-3">
+                    <label for="id_course_category" class="form-label">Select Your Course Category Under CET:</label>
+                    <select class="form-control" id="id_course_category" onchange="get_courses(this.value);">
+                        <option>--select--</option>
+                        {% for category in course_categorys %}
+                        <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="id_course" class="form-label">Select your preferred course:</label>
+                    <select class="form-control" id="id_course" onchange="get_cutoff_table()">
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="id_kcet_rank" class="form-label">Enter your KCET rank</label>
+                  <input type="number" class="form-control" id="id_kcet_rank">  
+                </div>
+ 
+ 
+                <div class="mb-3">
+                    <label for="id_category" class="form-label">Choose your reservation Category</label>
+                    <select class="form-control" id="id_category" onchange="get_cutoff_table()">
+                        <option>--select--</option>
+                        <option value='_1G'>1G - 1 General</option>
+                        <option value='_1K'>1K - 1 Kannada</option>
+                        <option value='_1R'>1R - 1 Rural</option>
+                        <option value='_2AG'>2AG - 2A General</option>
+                        <option value='_2AK'>2AK - 2A Kannada</option>
+                        <option value='_2AR'>2AR - 2A Rural</option>
+                        <option value='_2BG'>2BG - 2B General</option>
+                        <option value='_2BK'>2BK - 2B Kannada</option>
+                        <option value='_2BR'>2BR - 2B Rural</option>
+                        <option value='_3AG'>3AG - 3A General</option>
+                        <option value='_3AK'>3AK - 3A Kannada</option>
+                        <option value='_3AR'>3AR - 3A Rural</option>
+                        <option value='_3BG'>3BG - 3B General </option>
+                        <option value='_3BK'>3BK - 3B Kannada</option>
+                        <option value='_3BR'>3BR - 3B Rural</option>
+                        <option value='_GM'>GM - General Merit</option>
+                        <option value='_GMK'>GMK - General Merit Kannada</option>
+                        <option value='_GMP'>GMP - General Merit Private</option>
+                        <option value='_GMR'>GMR - General Merit Rural</option>
+                        <option value='_SCG'>SCG - Schedule Caste General</option>
+                        <option value='_SCK'>SCK - Schedule Caste Kannada</option>
+                        <option value='_SCR'>SCR - Schedule Caste Rural</option>
+                        <option value='_STG'>STG - Schedule Tribe General</option>
+                        <option value='_STK'>STK - Schedule Tribe Kannada</option>
+                        <option value='_STR'>STR - Schedule Tribe Rural</option>
+                    </select>
+
+                </div>
+                <div class="mb-3">
+                    <label for="id_round" class="form-label">Select KCET Round:</label>
+                    <select class="form-control" id="id_round" onchange="get_cutoff_table()">
+                        <option>--select--</option>
+                        <option value="Round 1">1st Round</option>
+                        <option value="Round 2">2nd Round</option>
+                        <option value="Round 2 Extended">2nd extended Round</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div id="id_data">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'cutoff.js' %}"></script>
+{% endblock content %}
