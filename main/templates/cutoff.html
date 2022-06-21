@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <h1>KCET Cutoff Rank Analyser</h1>
+    <h1 class="m-3">KCET Cutoff Rank Analyser</h1>
     <div class="row my-3">
         <div class="col-md-6">
-            <form action="">
+            <div class="card p-3 shadow">
                 <div class="mb-3">
                     <label for="id_course_category" class="form-label">Select Your Course Category Under CET:</label>
                     <select class="form-control" id="id_course_category" onchange="get_courses(this.value);">
-                        <option>--select--</option>
+                        <option value="">--select--</option>
                         {% for category in course_categorys %}
                         <option value="{{ category }}">{{ category }}</option>
                         {% endfor %}
@@ -62,13 +62,12 @@
                 <div class="mb-3">
                     <label for="id_round" class="form-label">Select KCET Round:</label>
                     <select class="form-control" id="id_round" onchange="get_cutoff_table()">
-                        <option>--select--</option>
                         <option value="Round 1">1st Round</option>
                         <option value="Round 2">2nd Round</option>
                         <option value="Round 2 Extended">2nd extended Round</option>
                     </select>
                 </div>
-            </form>
+            </div>
         </div>
         <div class="col-md-6">
             <div id="id_data">
@@ -78,5 +77,5 @@
     </div>
 </div>
 
-<script src="{% static 'cutoff.js' %}"></script>
+<script src="{% static 'js/cutoff.js' %}"></script>
 {% endblock content %}

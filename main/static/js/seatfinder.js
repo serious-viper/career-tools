@@ -36,7 +36,7 @@ document.getElementById("id_reservation").addEventListener("change", function (e
 
 function get_courses(category_name) {
     $.post(
-        "seat-finder/ajax/get-courses",
+        "seat-analyser/ajax/get-courses",
         {
             "category_name": category_name
         },
@@ -57,7 +57,7 @@ function get_courses(category_name) {
 
 function get_districts(category_name, course_name) {
     $.post(
-        "seat-finder/ajax/get-districts",
+        "seat-analyser/ajax/get-districts",
         {
             "category_name": category_name,
             "course_name": course_name
@@ -79,7 +79,7 @@ function get_districts(category_name, course_name) {
 
 function get_colleges(category_name, course_name, district_name) {
     $.post(
-        "seat-finder/ajax/get-colleges",
+        "seat-analyser/ajax/get-colleges",
         {
             "category_name": category_name,
             "course_name": course_name,
@@ -103,10 +103,10 @@ function get_colleges(category_name, course_name, district_name) {
 
 function get_seat_matrix(course_name, college_name, reservation_category) {
     if (reservation_category === undefined) {
-        
+
     } else {
         $.post(
-            "seat-finder/ajax/get-seat-matrix",
+            "seat-analyser/ajax/get-seat-matrix",
             {
                 "college_name": college_name,
                 "course_name": course_name,
@@ -135,8 +135,6 @@ function get_seat_matrix(course_name, college_name, reservation_category) {
             }
         )
     }
-
-
 }
 
 

@@ -25,13 +25,13 @@ SECRET_KEY = 'django-insecure-x93@gqn#-$nsn_0vl=^v^vo@07&#-sxrpf11$m+8!!eh#8(=j9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'main','seat_finder',
+    'main',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

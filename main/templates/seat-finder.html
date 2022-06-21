@@ -2,11 +2,10 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <h2>Find out seat availability based on your Reservation Category</h2>
+    <h2 class="m-3">Find out seat availability based on your Reservation Category</h2>
     <div class="row">
-
         <div class="col-md-6">
-            <form>
+            <div class="card p-3 shadow">
                 <div class="mb-3">
                     <label for="id_category" class="form-label">Select a Course Category:</label>
                     <select class="form-control" id="id_category">
@@ -87,7 +86,7 @@
                         <option value='strh'>STRH</option>
                     </select>
                 </div>
-            </form>
+            </div>
         </div>
         <div class="col-md-6">
             <div id="id_seat_matrix_table"></div>
@@ -96,6 +95,6 @@
     </div>
 </div>
 
-<script src="{% static 'seatfinder.js' %}"></script>
+<script src="{% static 'js/seatfinder.js' %}"></script>
 
 {% endblock content %}

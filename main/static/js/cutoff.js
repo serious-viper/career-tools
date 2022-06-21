@@ -28,7 +28,7 @@ function get_cutoff_table() {
     var rank = $("#id_kcet_rank").val();
     var res_category = $("#id_category").val();
     var round = $("#id_round").val();
-    if (course != null && rank != null) {
+    if (course !== '--select--' && rank !== '' && res_category !== '--select--') {
         $.post(
             "kcet-cutoff/ajax/get-data",
             {

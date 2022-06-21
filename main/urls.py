@@ -1,15 +1,24 @@
 from django.urls import path
-from main.views import IndexView, cutoff, upload, get_courses, get_data
+from main.views import *
 
-app_name = 'main' 
-
+ 
 
 urlpatterns = [
     path('', IndexView.as_view(), name="index"),
-    path('kcet-cutoff', cutoff, name="cutoff"),
-    path('upload', upload, name="upload"),
+    path('disclaimer', TemplateView.as_view(template_name="disclaimer.html"), name="disclaimer"),
+    
+    # KCET CUTOFF ROUTES
+    path('kcet-cutoff', CutoffAnalyserView().main, name="kcet-cutoff"),
+    path('kcet-cutoff/upload', CutoffAnalyserView().upload, name="cutoff-upload"),
+    path("kcet-cutoff/ajax/get-courses", CutoffAnalyserView().get_courses),
+    path("kcet-cutoff/ajax/get-data", CutoffAnalyserView().get_data),
 
 
-    path("kcet-cutoff/ajax/get-courses", get_courses),
-    path("kcet-cutoff/ajax/get-data", get_data)
+    # College Seat Analyser
+    path("seat-analyser", SeatAnalyserView().main, name = "seat-analyser"),
+    path('seat-analyser/upload', SeatAnalyserView().upload, ),
+    path('seat-analyser/ajax/get-courses', SeatAnalyserView().get_courses),
+    path('seat-analyser/ajax/get-districts', SeatAnalyserView().get_districts),
+    path('seat-analyser/ajax/get-colleges', SeatAnalyserView().get_colleges),
+    path('seat-analyser/ajax/get-seat-matrix', SeatAnalyserView().get_seat_matrix),
 ]
